@@ -11,6 +11,9 @@ typedef struct{
 		printf("%.2f ", getsum());
 		cout << id << ' ' << firstname << ' ' << lastname << endl;
 	}
+	void scan(){
+        cin >> id >> firstname >> lastname >> test[0] >> test[1];
+	}
 }Student;
 float getavg(Student student[], int size){
 	float sum = 0;
@@ -33,11 +36,14 @@ int main(){
 	cin >> n;
 	Student student[n];
 	for(int i = 0; i < n; i++)
-		cin >> student[i].id >> student[i].firstname >> student[i].lastname >> student[i].test[0] >> student[i].test[1];
+		student[i].scan();
+
 	getbest(student, n).print();
+
 	float avg = getavg(student, n);
 	for(int i = 0; i < n; i++)
 		if(student[i].getsum() < avg)
 			student[i].print();
+
 	return 0;
 }

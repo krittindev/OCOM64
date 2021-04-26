@@ -24,11 +24,7 @@ int main(){
 			case 'M':
 			    for(auto it = M.begin(); it != M.end(); it++){
                     if(it->name == temp.name){
-                        Package p;
-                        p.name = it->name;
-                        p.sum = it->sum + 1;
-                        M.insert(it,p);
-                        M.erase(it);
+                        it->sum++;
                         isFound = true;
                         break;
                     }
@@ -39,11 +35,7 @@ int main(){
 			case 'F':
 			    for(auto it = F.begin(); it != F.end(); it++){
                     if(it->name == temp.name){
-                        Package p;
-                        p.name = it->name;
-                        p.sum = it->sum + 1;
-                        F.insert(it,p);
-                        F.erase(it);
+                        it->sum++;
                         isFound = true;
                         break;
                     }
