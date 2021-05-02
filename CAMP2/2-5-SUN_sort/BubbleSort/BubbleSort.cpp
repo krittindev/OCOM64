@@ -2,7 +2,7 @@
 using namespace std;
 int bubbleSort(int*, int);
 int main(){
-    int arr[100] ,n;
+    int arr[100] , n;
     cin >> n;
     for(int i = 0; i < n; i++)
         cin >> arr[i];
