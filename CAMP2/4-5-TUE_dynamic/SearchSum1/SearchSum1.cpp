@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+int check(int*, int, int);
 int main(){
     int n, k, temp;
     cin >> n >> k;
@@ -10,14 +11,14 @@ int main(){
         arr[i] += arr[i - 1];
     while(k--){
         cin >> temp;
-        int i;
-        for(i = n - 1; i > 0; i--)
-            if(temp >= arr[i])
-                break;
-        if(i == 0 && temp < arr[i])
-            cout << 0 << endl;
-        else
-            cout << i + 1 << endl;
+        cout << check(arr, n, temp) << endl;
     }
     return 0;
+}
+int check(int arr[], int n, int t){
+    int i;
+    for(i = 0; i < n; i++)
+        if(t < arr[i])
+            break;
+    return i;
 }
