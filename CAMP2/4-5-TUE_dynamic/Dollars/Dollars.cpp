@@ -8,7 +8,6 @@ int main(){
     cin >> n >> k;
     for(int i = 0; i < k; i++)
         cin >> d[i];
-    //cout << dollars(c, d, n, k) << endl;
     coin(c, d, n, k);
     for(int i = 0; i < k; i++)
         cout << mem[i] << endl;
