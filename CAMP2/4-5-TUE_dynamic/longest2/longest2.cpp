@@ -7,9 +7,17 @@ int main(){
     for(int i = 0; i < n; i++)
         cin >> arr[i];
     for(int i = 0; i < n; i++)
-        if(LCM(arr, L, i) > maxL)
+        if(LCM(arr, L, i) > maxL){
             maxL = LCM(arr, L, i);
-    cout << maxL << endl;
+            cout << n << ' ' << arr[n] << ' ' << maxL + 1 << ' ' << L[n] << endl;
+        }
+    maxL = 0;
+    for(int i = 0; i < n; i++){
+        if(L[i] > maxL){
+            maxL = L[i];
+            cout << arr[i] << endl;
+        }
+    }
     return 0;
 }
 int LCM(int arr[], int L[], int n){
