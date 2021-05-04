@@ -9,14 +9,15 @@ int main(){
     for(int i = 0; i < n; i++)
         if(LCM(arr, L, i) > maxL)
             maxL = LCM(arr, L, i);
+    /*for(int i = 0; i < n; i++)
+        cout << i << ' ' << arr[i] << ' ' << maxL + 1 << ' ' << L[i] << endl;*/
     cout << maxL << endl;
     maxL = 0;
-    for(int i = 0; i < n; i++){
-        if(L[i] > maxL){
-            maxL = L[i];
+    for(int i = 0; i < n; i++)
+        if(maxL < L[i]){
             cout << arr[i] << " ";
+            maxL = L[i];
         }
-    }
     return 0;
 }
 int LCM(int arr[], int L[], int n){

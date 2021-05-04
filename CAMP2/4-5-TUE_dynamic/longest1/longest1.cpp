@@ -7,8 +7,10 @@ int main(){
     for(int i = 0; i < n; i++)
         cin >> arr[i];
     for(int i = 0; i < n; i++)
-        if(LCM(arr, L, i) > maxL)
+        if(LCM(arr, L, i) > maxL){
             maxL = LCM(arr, L, i);
+            //cout << n << ' ' << arr[i] << ' ' << maxL + 1 << ' ' << L[i] << endl;
+        }
     cout << maxL << endl;
     return 0;
 }
