@@ -25,39 +25,19 @@ Node *insertNode(int arr[], Node *root, int i, int n) {
     return root;
 }
 
-void preOrder(Node *root) {
-    if (root != NULL) {
-        cout << root->data <<" ";
-
-        preOrder(root->left);
-        preOrder(root->right);
-    }
-}
-
-void inOrder(Node *root) {
-    if (root != NULL) {
-        inOrder(root->left);
-
-        cout << root->data <<" ";
-
-        inOrder(root->right);
-    }
-}
-
-
-void postOrder(Node *root) {
-    if (root != NULL) {
-        postOrder(root->left);
-        postOrder(root->right);
-
-        cout << root->data <<" ";
-    }
+int rootDistance(Node *root, int n){
+    if(n == root->data)
+        return 0;
+    else if(n < root->data)
+        return 1 + rootDistance(root->left, n);
+    else
+        return 1 + rootDistance(root->right, n);
 }
 
 int main() {
-    int n;
+    int n, a, b;
 
-    cin >> n;
+    cin >> n >> a >> b;
 
     int arr[n];
 
