@@ -2,36 +2,37 @@
 using namespace std;
 
 struct Node {
-    int key;
+    int data;
     Node *left, *right;
 };
 
-Node *newNode(int item) {
-    Node *temp = (Node *)malloc(sizeof(Node));
-    temp->key = item;
-    temp->left = temp->right = NULL;
-    return temp;
+Node *newNode(int key) {
+    Node *node = (Node *)malloc(sizeof(Node));
+    node->data = key;
+    node->left = node->right = NULL;
+    return node;
+}
+
+Node *insertNode(Node *node, int data) {
+    if (node == NULL)
+        return newNode(data);
+
+    if (data < node->data)
+        node->left = insertNode(node->left, data);
+    else
+        node->right = insertNode(node->right, data);
+
+    return node;
 }
 
 void inorder(Node *root) {
     if (root != NULL) {
         inorder(root->left);
 
-        cout << root->key << " ";
+        cout << root->data << " ";
 
         inorder(root->right);
     }
-}
-
-Node *insert(Node *Node, int key) {
-    if (Node == NULL) return newNode(key);
-
-    if (key < Node->key)
-        Node->left = insert(Node->left, key);
-    else
-        Node->right = insert(Node->right, key);
-
-    return Node;
 }
 
 int main() {
@@ -40,9 +41,10 @@ int main() {
     cin >> n;
 
     Node *root = NULL;
+
     for (int i = 0; i < n; i++) {
         cin >> temp;
-        root = insert(root, temp);
+        root = insertNode(root, temp);
     }
 
     inorder(root);

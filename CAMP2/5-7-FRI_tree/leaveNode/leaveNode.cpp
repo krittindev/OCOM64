@@ -14,7 +14,7 @@ Node* newNode(int key) {
 }
 
 Node *insertNode(int arr[], Node *root, int i, int n) {
-    if (i < n) {
+    if (i < n && arr[i] != -1) {
         Node *temp = newNode(arr[i]);
         root = temp;
 
@@ -25,21 +25,13 @@ Node *insertNode(int arr[], Node *root, int i, int n) {
     return root;
 }
 
-void preOrder(Node *root) {
+void travel(Node *root) {
     if (root != NULL) {
-        cout << root->data <<" ";
+        if(root->left == NULL && root->right == NULL)
+            cout << root->data <<" ";
 
-        preOrder(root->left);
-        preOrder(root->right);
-    }
-}
-
-void postOrder(Node *root) {
-    if (root != NULL) {
-        postOrder(root->left);
-        postOrder(root->right);
-
-        cout << root->data <<" ";
+        travel(root->left);
+        travel(root->right);
     }
 }
 
@@ -55,11 +47,7 @@ int main() {
 
     Node *root = insertNode(arr, root, 0, n);
 
-    preOrder(root);
-
-    cout << endl;
-
-    postOrder(root);
+    travel(root);
 
     return 0;
 }
